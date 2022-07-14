@@ -1,38 +1,107 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+body {
+  font-family: "Montserrat", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-size: 48px;
+  font-weight: 400;
+  margin-left: 40px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.line-through {
+  text-decoration: line-through;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* HEADER */
+
+header {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  height: 193px;
+  box-sizing: border-box;
+  border-bottom: 1px solid lightgray;
+}
+
+header img {
+  height: 80px;
+  margin-left: 80px;
+}
+
+/* MAIN */
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+form {
+  margin-top: 25px;
+  width: 40%;
+  height: 40px;
+  display: flex;
+}
+
+.input-text-task {
+  width: 350px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  height: 100%;
+  margin-left: 15px;
+  background-color: #5c48d3;
+  color: white;
+  width: 120px;
+  font-size: 20px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border-radius: 10px;
+  border-style: none;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: #8b7be4;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.tasks {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.task {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  height: 35px;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.5);
+}
+
+label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 18px;
+  margin-left: 15px;
+}
+
+label img {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+label img:hover {
+  opacity: 0.9;
+  transition: 100ms;
 }

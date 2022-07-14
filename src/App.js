@@ -1,23 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Header from "./components/Header";
+import Task from "./components/Task";
 
 function App() {
+  const [tasks, setTasks] = useState([]);
+  const [value, setValue] = useState("");
+
+  const handleChange = (event) => {
+    const value = event.target.value;
+    setValue(value);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <Header />
+      <main>
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            if (value) {
+              const newTab = [...tasks];
+              newTab.push(value);
+              setTasks(newTab);
+              setValue("");
+            }
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          <input
+            className="input-text-task"
+            type="text"
+            placeholder="Quelle tâche ?"
+            value={value}
+            onChange={handleChange}
+          />
+          <button type="submit">Add task</button>
+        </form>
+        <div className="tasks">
+          {/* Je passe en revue mon tableau des tâches pour retourner toutes les tâches */}
+          {tasks.map((task, index) => {
+            return (
+              <Task
+                key={index}
+                index={index}
+                setValue={setValue}
+                tasks={tasks}
+                setTasks={setTasks}
+              />
+            );
+          })}
+        </div>
+      </main>
     </div>
   );
 }
