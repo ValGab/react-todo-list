@@ -88,7 +88,7 @@ input[type="checkbox"] {
   transform: scale(1.5);
 }
 
-label {
+.task div {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -96,12 +96,12 @@ label {
   margin-left: 15px;
 }
 
-label img {
+.task div img {
   margin-left: 20px;
   cursor: pointer;
 }
 
-label img:hover {
+.task div img:hover {
   opacity: 0.9;
   transition: 100ms;
 }

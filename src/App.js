@@ -21,8 +21,7 @@ function App() {
             event.preventDefault();
             if (value) {
               let task = { task: value, isDone: false };
-              const newTab = [...tasks];
-              newTab.push(task);
+              const newTab = [task, ...tasks];
               setTasks(newTab);
               setValue("");
             }
@@ -42,8 +41,8 @@ function App() {
           {tasks.map((task, index) => {
             return (
               <Task
-                task={tasks[index].task}
-                isDone={tasks[index].isDone}
+                task={task.task}
+                isDone={task.isDone}
                 key={index}
                 index={index}
                 setValue={setValue}

@@ -1,25 +1,29 @@
-import { useState } from "react";
 import trash from "../assets/img/trash.png";
 
 const Task = ({ index, tasks, setTasks, task, isDone }) => {
-  const [checked, setChecked] = useState(false);
-
   return (
     <div className="task">
       <input
         type="checkbox"
         id={task}
+        checked={isDone ? true : false}
         onChange={() => {
-          if (checked) {
-            setChecked(false);
-          } else if (!checked) {
-            setChecked(true);
+          const newTab = [...tasks];
+          if (isDone) {
+            newTab[index].isDone = false;
+          } else {
+            newTab[index].isDone = true;
+            let newTask = newTab[index];
+            newTab.splice(index, 1);
+            newTab.push(newTask);
           }
+          // newTab[index].isDone = !isDone; // !isDone pour passer à l'inverse
+          setTasks(newTab);
         }}
       />
       {/* Si la checkbox est cochée, la tâche s'affiche barrée  */}
-      {checked ? (
-        <label className="line-through" htmlFor={task}>
+      {isDone ? (
+        <div className="line-through">
           {task}
           <img
             src={trash}
@@ -30,9 +34,9 @@ const Task = ({ index, tasks, setTasks, task, isDone }) => {
               setTasks(newTab);
             }}
           />
-        </label>
+        </div>
       ) : (
-        <label htmlFor={task}>
+        <div>
           {task}
           <img
             src={trash}
@@ -43,7 +47,7 @@ const Task = ({ index, tasks, setTasks, task, isDone }) => {
               setTasks(newTab);
             }}
           />
-        </label>
+        </div>
       )}
     </div>
   );
