@@ -31,7 +31,7 @@ function App() {
           <input
             className="input-text-task"
             type="text"
-            placeholder="Quelle tâche ?"
+            placeholder="New task"
             value={value}
             onChange={handleChange}
           />
