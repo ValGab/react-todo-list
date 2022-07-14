@@ -20,8 +20,9 @@ function App() {
           onSubmit={(event) => {
             event.preventDefault();
             if (value) {
+              let task = { task: value, isDone: false };
               const newTab = [...tasks];
-              newTab.push(value);
+              newTab.push(task);
               setTasks(newTab);
               setValue("");
             }
@@ -41,6 +42,8 @@ function App() {
           {tasks.map((task, index) => {
             return (
               <Task
+                task={tasks[index].task}
+                isDone={tasks[index].isDone}
                 key={index}
                 index={index}
                 setValue={setValue}

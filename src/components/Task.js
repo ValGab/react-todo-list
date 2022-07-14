@@ -1,14 +1,14 @@
 import { useState } from "react";
 import trash from "../assets/img/trash.png";
 
-const Task = ({ index, tasks, setTasks }) => {
+const Task = ({ index, tasks, setTasks, task, isDone }) => {
   const [checked, setChecked] = useState(false);
 
   return (
     <div className="task">
       <input
         type="checkbox"
-        id={tasks[index]}
+        id={task}
         onChange={() => {
           if (checked) {
             setChecked(false);
@@ -19,8 +19,8 @@ const Task = ({ index, tasks, setTasks }) => {
       />
       {/* Si la checkbox est cochée, la tâche s'affiche barrée  */}
       {checked ? (
-        <label className="line-through" htmlFor={tasks[index]}>
-          {tasks[index]}
+        <label className="line-through" htmlFor={task}>
+          {task}
           <img
             src={trash}
             alt={`trash ${index}`}
@@ -32,8 +32,8 @@ const Task = ({ index, tasks, setTasks }) => {
           />
         </label>
       ) : (
-        <label htmlFor={tasks[index]}>
-          {tasks[index]}
+        <label htmlFor={task}>
+          {task}
           <img
             src={trash}
             alt={`trash ${index}`}

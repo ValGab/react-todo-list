@@ -32,15 +32,16 @@ header img {
 /* MAIN */
 
 main {
-  max-width: 1200px;
+  max-width: 400px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 form {
   margin-top: 25px;
-  width: 40%;
   height: 40px;
   display: flex;
 }
@@ -71,7 +72,6 @@ button:hover {
 }
 
 .tasks {
-  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
